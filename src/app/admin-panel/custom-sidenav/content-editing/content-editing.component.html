@@ -1,0 +1,77 @@
+        <!-- Ekle -->
+        <!-- <div class="col-1 bg-success counter-text">
+          <a  (click)="openCreateCategoryPage()" class="btn btn-success ">
+            <i class="fa-regular fa-square-plus"></i> Kategori Ekle
+          </a>
+      </div>
+
+<h2 class="text-center">Kategorileri Düzenle</h2>
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <td scope="col">Kategori Adı</td>
+      <td scope="col" class="text">Sil</td>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let category of categories">
+      <td>{{category.name}}</td>
+      
+      
+      <td>
+        <a class="btn btn-outline-danger mx-1" (click)="deleteCategory(category.id)">
+          <i class="fa-regular fa-trash-can"></i>
+        </a>
+      </td>
+    </tr>
+
+    
+  </tbody>
+</table> -->
+
+
+
+<mat-card>
+  
+  <mat-card-header>
+  
+    <mat-form-field>
+      <input matInput (keyup)="filterChange($event)" placeholder="Ara">
+    </mat-form-field>
+
+   
+      <span class=" bg-success counter-text categoryAddDiv">
+        <a  (click)="openCreateCategoryPage()" class="btn btn-success ">
+          <i class="fa-regular fa-square-plus"></i> Kategori Ekle
+        </a>
+      </span>
+    
+  </mat-card-header>
+
+
+<mat-card-content class="counter-text">
+ <table matSort  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-hover">
+
+ 
+  <ng-container matColumnDef="name">
+    <th mat-sort-header  mat-header-cell *matHeaderCellDef> Ad </th>
+    <td  mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+ 
+
+  <ng-container matColumnDef="delete">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Sil </th>
+    <td mat-cell *matCellDef="let category"><a class="btn btn-outline-danger mx-1" (click)="deleteCategory(category.id)"><i class="fa-regular fa-trash-can"></i></a></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</mat-card-content>
+
+<mat-card-footer>
+  <mat-paginator [pageSizeOptions]="[5,10,25,50]"></mat-paginator>
+</mat-card-footer>
+</mat-card>

@@ -1,0 +1,31 @@
+<ng-template #noSubjects>
+  <div class="alert alert-warning text-center my-3">
+    Listelenecek herhangi bir haber bulunamadı!
+  </div>
+</ng-template>
+
+
+<div *ngIf="subject; else noSubjects">
+  <div class="container font-fredoka">
+    <div class="header text-center">
+      <h1>{{ subject.title }}</h1>
+    </div>
+
+    <div class="article">
+      <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+          <div class="standartSubjectDetailPhotoContainer">
+            <img src="{{subject.subjectImageFileUrl}}" class="image standartSubjectDetailPhoto" alt="" />
+          </div>
+        
+          <h2>{{ subject.title }}</h2>
+          <p class="text-muted">
+            Yazar: {{subject.firstName}} {{subject.lastName}} | {{ subject.createdDate | date }} | Kategori:
+            {{ subject.categoryName }}
+          </p>
+          <p>{{ subject.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

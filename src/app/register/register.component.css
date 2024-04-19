@@ -1,0 +1,68 @@
+
+
+.border-md {
+    border-width: 2px;
+}
+
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+
+.btn-twitter {
+    background: #42AEEC;
+    border: none;
+}
+
+.btn-twitter:hover, .btn-twitter:focus {
+    background: #1799e4;
+}
+
+
+
+body {
+    min-height: 100vh;
+}
+
+.form-control:not(select) {
+    padding: 1.5rem 0.5rem;
+}
+
+select.form-control {
+    height: 52px;
+    padding-left: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+
+.submit-button{
+    margin-left: 180px;
+}
+
+/*Form Validators*/
+.form-control.ng-touched.ng-invalid{
+    border-left: 5px solid #a94442;
+}
+
+.form-control.ng-dirty.ng-valid{
+    border-left: 5px solid #41a948;
+}
+
+/*İcons*/
+.icon{
+    width: 20px;
+    height: 64px;
+    padding-top: 20px;
+    font-size: 23px;
+}

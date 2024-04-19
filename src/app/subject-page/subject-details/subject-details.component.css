@@ -1,0 +1,37 @@
+.date{
+  text-align: end; 
+}
+
+.header {
+  color: black;
+  padding: 10px 0;
+}
+
+.article img {
+  max-width: 100%;
+}
+.article p {
+  line-height: 1.6;
+}
+
+.standartSubjectDetailPhotoContainer{
+  width: 500px; /* veya istediğiniz genişlik */
+  height: 500px; /* veya istediğiniz yükseklik */
+  margin: 0 auto; /* Sayfa genişliğinde ortalama yapmak için */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Resmi sığdırmak için taşan kısımları gizler */
+  margin-bottom: 50px;
+} 
+
+
+
+.standartSubjectDetailPhoto {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto; /* Resmi ortalamak için */
+}

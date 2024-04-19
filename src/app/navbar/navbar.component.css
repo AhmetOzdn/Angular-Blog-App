@@ -1,0 +1,16 @@
+.font-fredoka {
+  font-family: "Fredoka", sans-serif;
+}
+
+.navbar-nav {
+  margin-left: 10px;
+  display: flex;
+}
+
+.navbar-tool {
+  margin-left: 250px;
+}
+
+.bg-palet {
+  background-color: #092635;
+}

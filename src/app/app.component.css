@@ -1,0 +1,18 @@
+/*Auth Button*/
+.writer-button{
+    top: 840px;
+    right: 30px;
+    position: fixed;
+    color: white;
+    font-size: large;
+    transition: all 500ms;
+    background-color: #5C8374;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.writer-button:hover{
+    color: rgb(216, 213, 213);
+    background-color: #1B4242;
+    z-index: 100;
+}

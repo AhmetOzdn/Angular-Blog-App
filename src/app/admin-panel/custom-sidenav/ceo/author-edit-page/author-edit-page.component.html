@@ -1,0 +1,60 @@
+<form [formGroup]="popUpForm" (ngSubmit)="savePopUpData(inputData.id)">
+  <h1 mat-dialog-title class="text-center my-2">Düzenle</h1>
+  <div mat-dialog-content>
+    <div class="p-5 editPage font-fredoka">
+      <div class="row">
+        <!-- Yetkiyi Düzenle Form -->
+
+        <div class="col-6">
+          <h2 class="text-center my-3">Yetkiyi Düzenle</h2>
+
+          <ul class="claimUl">
+            Geçerli Yetki ;
+            <li class="claimLi my-2">
+              @for (item of inputData.rolesAndClaims; track $index) {
+              {{ item.name }}
+              <i (click)="deleteClaim(item.userOperationClaimId)" class="fa-solid fa-circle-xmark deleteicon my-2"></i> <br />
+              }
+            </li>
+
+            <li class="claimLi">
+              <!-- bu bir inputtur ve bunu ileride belki başka bir yerde kullanabiliriz -->
+              <!-- <mat-form-field>
+                <mat-label></mat-label>
+                <input matInput formControlName="claim" />
+              </mat-form-field> -->
+            </li>
+          </ul>
+        </div>
+
+        <!-- Kullananılabilir Yetkiler-->
+        <div class="col-6">
+          <div>
+            <h2 class="claimHeader">Kullananılabilir Yetkiler</h2>
+            <ul class="claimUl">
+              <li class="claimLi">
+                <div>
+                  <!-- <mat-checkbox color="primary" formControlName="operationClaimId"  [value]="author.id">  
+                    {{ author.name }}
+                  </mat-checkbox> -->
+                  <mat-form-field>
+                  <mat-label>Kullanılabilir Yetkiler</mat-label>
+                   <mat-select formControlName="operationClaimId"> 
+                    @for (author of claims; track $index) {
+                      <mat-option  [value]="author.id">{{author.name}}</mat-option>
+                    }
+                  </mat-select>
+                </mat-form-field>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="buttons my-2">
+    <button type="submit" class="btn btn-success mx-1">Kaydet</button>
+    <i class="fa-solid fa-circle-xmark fa-2x icon" (click)="closePopUp()"></i>
+  </div>
+</form>

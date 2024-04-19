@@ -1,0 +1,85 @@
+<div class="container-fluid px-5 my-5 font-fredoka">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="card border-0 rounded-3 shadow-lg overflow-hidden">
+          <div class="card-body p-0">
+            <div class="row g-0">
+              <div class="col-sm-6 d-none d-sm-block bg-image">
+                <img src="assets/images/email.png" alt="">
+              </div>
+              <div class="col-sm-6 p-4">
+                <div class="text-center">
+                  <div class="fw-light pastel-dark-low2"><h2>Bize Ulaşın</h2></div>
+                  <p class="mb-4  pastel-dark-low2 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate, tempora?</p>
+                </div>
+  
+               
+  
+                <form id="contactForm" #contactForm="ngForm">
+  
+                  <!-- Name Input -->
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input required minlength="3" type="text" name="name" #name="ngModel" [(ngModel)]="model.name" id="name" class="form-control"/>
+                     <!-- hata mesajı -->
+                     <div class="text-danger mt-1" *ngIf="name.invalid && name.touched">
+                        Marka İsmi en az 3 karakter olmalıdır.
+                    </div>
+                </div>
+  
+                  <!-- Email Input -->
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input required minlength="3" type="text" name="email" #email="ngModel" [(ngModel)]="model.email" id="email" class="form-control"/>
+                     <!-- hata mesajı -->
+                     <div class="text-danger mt-1" *ngIf="email.invalid && email.touched">
+                        Marka İsmi en az 3 karakter olmalıdır.
+                    </div>
+                </div>
+  
+                  <!-- Message Input -->
+                  <div class="mb-3">
+                    <label for="productDetail" class="mb-2">Mesaj</label>
+                    <textarea required type="text" minlength="3" name="message" #message="ngModel" [(ngModel)]="model.message" id="message" class="form-control pastel-dark-low2" style="height: 10rem;"></textarea>
+                     <!-- hata mesajı -->
+                     <div class="text-danger mt-1" *ngIf="message.invalid && message.touched">
+                      Mesaj en az 3 karakter olmalıdır.
+                    </div>
+                </div>
+
+
+                  <!-- Message Input -->
+                  <!-- <div class="form-floating mb-3">
+                    <textarea class="form-control pastel-dark-low2" #message="ngModel" [(ngModel)]="model.message" id="message" type="text" placeholder="Mesaj" style="height: 10rem;"></textarea>
+                    <label for="message" class="pastel-dark-low2">Mesaj</label>
+                  </div> -->
+  
+                  <!-- Submit success message -->
+                  <!-- <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">
+                      <div class="fw-bolder">Form submission successful!</div>
+                      <p></p>
+                      <a href=""></a>
+                    </div>
+                  </div> -->
+  
+                  <!-- Submit error message -->
+                  <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                  </div>
+  
+                  <!-- Submit button -->
+                  <div class="d-grid">
+                    <button class="btn btn-success btn-lg" id="submitButton" type="submit" (click)="postContactUs(name.value,email.value,message.value)" [disabled]="contactForm.invalid">Submit</button>
+                  </div>
+                </form>
+                <!-- End of contact form -->
+  
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

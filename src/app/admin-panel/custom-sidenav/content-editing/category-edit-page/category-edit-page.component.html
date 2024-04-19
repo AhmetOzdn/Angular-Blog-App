@@ -1,0 +1,14 @@
+<div class="p-5"> 
+    <form action="">
+    <h2 class="text-center my-3">Kategori Ekle</h2>
+    <div class="mb-3">
+        <label for="categoryName" class="form-label">Kategori İsmi</label>
+        <input #name type="text" name="categoryName"  id="categoryName" class="form-control">
+    </div>
+
+</form>
+    <div class="text-center my-5">
+        <a (click)="saveCategory(name)" class="btn btn-outline-success mx-2">Kategoriyi Ekle</a> 
+        <i class="fa-solid fa-circle-xmark fa-2x icon" (click)="closePopUp()"></i>
+    </div>
+</div>

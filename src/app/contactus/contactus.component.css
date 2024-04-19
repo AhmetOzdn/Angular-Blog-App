@@ -1,0 +1,32 @@
+body {
+  background: #5C8374;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.font-fredoka{
+  font-family: "Fredoka", sans-serif;
+}
+
+.pastel-dark{
+color: #092635;
+}
+
+.pastel-dark-low{
+color: #1B4242;
+}
+
+.pastel-dark-low2{
+color: #5C8374;
+}
+
+
+.pastel-dark-low3{
+color: #9EC8B9;
+}
+
+.bg-image {
+  padding-left: 120px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

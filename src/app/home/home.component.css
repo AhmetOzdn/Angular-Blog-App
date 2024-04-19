@@ -1,0 +1,154 @@
+.font-fredoka{
+    font-family: "Fredoka", sans-serif;
+}
+.pastel-dark{
+    color: #092635;
+}
+
+.pastel-dark-low{
+    color: #1B4242;
+}
+
+.pastel-dark-low2{
+    color: #5C8374;
+}
+
+
+.pastel-dark-low3{
+    color: #9EC8B9;
+}
+
+/*Carousel*/
+
+.carousel-edit{
+  border-radius: 15px;
+}
+
+.carousel-size{
+  width: 900px;
+  position: relative;
+  height: auto;
+  left: 850px;
+  top: 30px;
+}
+
+.carousel-text{
+  z-index: 1;
+  color: white;
+  position: absolute;
+  top: 250px;
+  width: 600px;
+  left: 150px;
+
+  p{
+      color: rgb(167, 163, 163);
+  }
+}
+  
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  background-color: #9EC8B9;
+  transition: all 0.5s ease;
+  border-radius: 50%;
+}
+
+.carousel-indicators button.active {
+  width: 10px;
+  border-radius: 50%;
+}
+
+.card {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: none;
+  position: relative;
+}
+
+.card::before {
+width: 100%;
+height: 100%;
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(180deg, #fff 0%, black 100%);
+z-index: 1;
+mix-blend-mode: multiply;
+}
+
+.card-body {
+  position: absolute;
+  z-index: 3;
+}
+
+.headlines a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.5s ease;
+}
+
+.headlines a:hover {
+  text-decoration: underline;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.icons .icon {
+  display: flex;
+  gap: 0.3em;
+}
+
+
+/*include-navbar*/
+.include-navbar{
+    background-color: #1B4242;
+    height: 750px;
+    position: relative;
+}
+
+/*Sidebar*/
+
+.sidebar{
+  margin-left: 100px;
+  font-family: "Fredoka", sans-serif;
+}
+
+/*Cards*/
+
+/* This pen */
+/* body {
+  font-family: "Baloo 2", cursive;
+  font-size: 16px;
+  color: #ffffff;
+  text-rendering: optimizeLegibility;
+  font-weight: initial;
+}
+
+.dark {
+  background: #110f16;
+}
+
+.light {
+  background: #f3f5f7;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+} */
+
+
+
+
+
+
+
+
+
+

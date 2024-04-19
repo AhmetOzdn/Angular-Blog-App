@@ -1,0 +1,59 @@
+<div class="p-5"> 
+    <form #subjectCreateForm="ngForm">
+      <h2 class="text-center my-3">Konu Ekle</h2>
+  
+      <!-- Konu Başlığı -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Konu Başlığı</label>
+        <input type="text" name="title" #title="ngModel" [(ngModel)]="model.title" id="title" class="form-control">
+      </div>
+      <!-- hata mesajı -->
+      <div class="text-danger mt-1" *ngIf="title.invalid && title.touched">
+        Konu Başlığı en az 3 karakter olmalıdır.
+      </div>
+
+
+   <!-- Konu Özeti -->
+      <div class="mb-3">
+        <label for="summary" class="form-label">Konu Özeti</label>
+        <input type="text" name="summary" #summary="ngModel" [(ngModel)]="model.summary" id="summary" class="form-control">
+      </div>
+      <!-- hata mesajı -->
+      <div class="text-danger mt-1" *ngIf="summary.invalid && summary.touched">
+        Konu Özeti en az 3 karakter olmalıdır.
+      </div>
+  
+      <!-- Konu İçeriği -->
+      <div class="mb-3">
+        <label for="text" class="form-label">Konu İçeriği</label>
+        <textarea class="form-control pastel-dark-low2" id="text" name="text" #text="ngModel" [(ngModel)]="model.text" placeholder="İçerik" style="height: 10rem;" data-sb-validations="required"></textarea>
+      </div>
+      <!-- hata mesajı -->
+      <div class="text-danger mt-1" *ngIf="text.invalid && text.touched">
+        Konu İçeriği en az 3 karakter olmalıdır.
+      </div>
+      
+      <!-- Dosya Yükleme -->
+      <div class="mb-3">
+        <input class="filePick" type="file" (change)="onFileSelected($event)" />
+      </div>
+        
+      <!-- Kategori -->
+      <div class="mb-3">
+        <label for="categoryId" class="form-label">Kategori</label>
+        <select #categoryType type="text" name="categoryId" #categoryId="ngModel" [(ngModel)]="model.categoryId" id="categoryId" class="form-select">
+          <option value="0">Kategori</option>
+          <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+      </div>
+      <!-- hata mesajı -->
+      <div class="text-danger mt-1" *ngIf="categoryId.invalid && categoryId.touched">
+        Kategori seçiniz.
+      </div>
+  
+      <div class="text-center my-5">
+        <button type="button" class="btn btn-outline-success mx-2" (click)="saveSubject(categoryId.value, title.value, text.value, summary.value)">Konuyu Ekle</button> 
+      </div>
+    </form>
+  </div>
+  

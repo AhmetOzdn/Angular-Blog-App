@@ -1,0 +1,46 @@
+mat-toolbar {
+  position: relative;
+  z-index: 5;
+}
+
+mat-sidenav-container{
+  height: 100vh;
+}
+
+.content {
+  padding: 24px;
+}
+
+mat-sidenav,mat-sidenav-content{
+  transition: all 500ms ease-in-out;
+}
+
+/*counter*/
+
+.counter-section{
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.counter-text{
+  border-radius: 10px;
+  margin-right: 30px;
+  color: white;
+  padding: 10px;
+}
+
+/*Date Picker*/
+
+.date-picker{
+  position: relative;
+}
+
+.placement{
+  width: 400px;
+}
+
+/*AddCategory*/
+/* .addcategory{
+  
+} */

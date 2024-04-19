@@ -1,0 +1,96 @@
+<!-- <div class="col-1 bg-primary counter-text">
+  <a (click)="openAuthorCreatePage()" class="btn btn-primary mx-1">
+    <i class="fa-regular fa-square-plus"></i> Yetkili Ekle
+  </a>
+</div>
+
+<h2 class="text-center">Yetkileri Düzenle</h2>
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <td scope="col">Ad</td>
+      <td scope="col">Soyad</td>
+      <td scope="col">Email</td>
+      <td scope="col">Yetki Düzenle</td>
+      <td scope="col">Sil</td>
+    </tr>
+   
+  </thead>
+  <tbody class="table-group-divider">
+    <tr *ngFor="let author of authorities">
+      <td>{{ author.firstName }}</td>
+      <td>{{ author.lastName }}</td>
+      <td>{{ author.email }}</td>
+      <td>
+        @for (author of author.rolesAndClaims; track $index) {
+        {{ author.name }} 
+        }
+        <a class="btn btn-outline-primary mx-2" (click)="openAuthorEditPage(author)"><i class="fa-solid fa-pen"></i></a>
+      </td>
+      <td>
+        <a class="btn btn-outline-danger mx-1" (click)="deleteAuthory(author.id)"><i class="fa-regular fa-trash-can"></i></a>
+      </td>
+    </tr>
+    
+  </tbody>
+  <tfoot>
+     <mat-paginator
+  showFirstLastButtons
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  ></mat-paginator>
+   
+  </tfoot>
+</table> -->
+
+<mat-card>
+  <mat-card-header>
+    <mat-form-field>
+      <input matInput (keyup)="filterChange($event)" placeholder="Ara">
+    </mat-form-field>
+  </mat-card-header>
+
+<mat-card-content class="counter-text">
+ <table matSort  mat-table [dataSource]="dataSource" class="mat-elevation-z8 table table-hover">
+
+ 
+  <ng-container matColumnDef="name">
+    <th mat-sort-header  mat-header-cell *matHeaderCellDef> Ad </th>
+    <td  mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+ 
+  <ng-container matColumnDef="lastname">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Soyad </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> E-mail </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="claim" >
+    <th mat-sort-header mat-header-cell *matHeaderCellDef > Yetki Düzenle </th>
+   
+    <td mat-cell *matCellDef="let author"> 
+      @for (author of author.rolesAndClaims; track $index) {
+        {{ author.name }} 
+      }  <a class="btn btn-outline-primary mx-2" (click)="openAuthorEditPage(author)"><i class="fa-solid fa-pen"></i></a></td>
+     
+  </ng-container>
+  
+  <ng-container matColumnDef="delete">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef> Sil </th>
+    <td mat-cell *matCellDef="let author"><a class="btn btn-outline-danger mx-1" (click)="deleteAuthory(author.id)"><i class="fa-regular fa-trash-can"></i></a></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+</mat-card-content>
+
+<mat-card-footer>
+  <mat-paginator [pageSizeOptions]="[5,10,25,50]"></mat-paginator>
+</mat-card-footer>
+</mat-card>

@@ -1,0 +1,67 @@
+
+/*Kullanılabilir Yetkiler CSS*/
+
+.claimHeader{
+    margin-left: 130px;
+}
+
+.claimUl{
+    font-size: large;
+    text-align: center;
+    list-style: none;
+    color: green;
+}
+
+
+/*buttons*/
+
+.buttons{
+    text-align: center;
+}
+
+/*X İcon*/
+
+.icon{
+    color: rgb(201, 32, 32);
+    cursor: pointer;
+    position: absolute;
+    right:15px;
+    top: 15px;
+    transition: color .3s;
+}
+
+.icon:hover{
+    color: rgb(255, 0, 0);
+
+}
+
+.deleteicon{
+    color: rgb(201, 32, 32);
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.deleteicon:hover{
+    color: rgb(255, 0, 0);
+
+}
+
+/*İnputs style*/
+mat-card{
+    margin: 2%;
+    text-align: left;
+}
+
+.mat-mdc-form-field{
+    width: 95%;
+    margin: 1%;
+}
+
+.mat-50{
+    width: 45%;
+    margin: 1%;
+}
+
+button{
+    margin: 2px;
+}
