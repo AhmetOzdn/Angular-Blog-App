@@ -35,10 +35,10 @@ export class CustomSidenavComponent implements OnInit {
     this.accountService.getAuth().subscribe({
       next: (data) => {
         this.getFromAuth = data;
-        console.log('Get From Auth Başarılı ! :', data);
+        // console.log('Get From Auth Başarılı ! :', data);
       },
       error: (err) => {
-        console.log('Get From Auth Başarısız ! :', err);
+        // console.log('Get From Auth Başarısız ! :', err);
       },
     });
 
@@ -46,13 +46,15 @@ export class CustomSidenavComponent implements OnInit {
     this.accountService.getImage().subscribe({
       next: (response) => {
         this.getImage = response;
-        console.log('Get Image İşlemi Başarılı ! :', response);
+        // console.log('Get Image İşlemi Başarılı ! :', response);
       },
       error: (err) => {
-        console.log('Get Image İşlemi Başarısız ! :', err);
+        // console.log('Get Image İşlemi Başarısız ! :', err);
       },
     });
   }
+
+  
   /* Burası Sidebar'ın küçültüldüğünde yazıların da aynı oranda kaydırılmasını sağlar */
   sideNavCollapsed = signal(false);
   @Input() set collapsed(val: boolean) {
@@ -62,7 +64,7 @@ export class CustomSidenavComponent implements OnInit {
   menuItems = signal<MenuItem[]>([
     { icon: 'dashboard', label: 'Ceo', route: 'ceo' },
     { icon: 'edit', label: 'Content Edit', route: 'contentedit' },
-    { icon: 'analytics', label: 'Analytics', route: 'analytics' },
+    // { icon: 'analytics', label: 'Analytics', route: 'analytics' }, şimdilik kapalı kalıcak
   ]);
 
   profilePicSize = computed(() => (this.sideNavCollapsed() ? '32' : '100'));

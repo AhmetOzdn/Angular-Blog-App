@@ -4,30 +4,30 @@
 
 
   <section class="white font-fredoka" *ngIf="subjects.length>0 else noSubjects"> 
-            
-    <div class="container py-2">
+   
+    <div class="container py-2 ">
       <div class="h1 text-center pastel-dark-low" id="pageHeaderTitle">Haberler</div> 
   
-      <article class="postcard light blue" *ngFor="let subject of subjects"> 
+      <article class="postcard light blue" *ngFor="let subject of subjects | paginate: { itemsPerPage: itemsPerPage, currentPage: page }"> 
         <a class="postcard__img_link" [routerLink]="['/subjects', subject.id]">
           <div *ngIf="subject.subjectImageFileId && subject.subjectImageFileId != null else defaultPhoto" class="standartHomePageSubjectPhotoContainer">
-          <img  class="postcard__img standartHomePageSubjectPhoto" src="{{subject.subjectImageFileUrl}}"  alt="Image Title" /> <!--buraya img gelicek-->
+          <img  class="postcard__img standartHomePageSubjectPhoto" src="{{subject.subjectImageFileUrl}}"  alt="Image Title" /> 
           </div>
           <ng-template #defaultPhoto>
             <img src="https://flepix-blog-subjectfiles.s3.amazonaws.com/flepix.png" alt="" class="postcard__img" style="width: 200px" />
         </ng-template>
         </a>
         <div class="postcard__text t-dark">
-         <h1 class="postcard__title pastel-dark-low blue"><a [routerLink]="['/subjects', subject.id]">{{subject.title}}</a></h1>  <!--  -->
+         <h1 class="postcard__title pastel-dark-low blue"><a [routerLink]="['/subjects', subject.id]">{{subject.title}}</a></h1>
           <div class="postcard__subtitle small">
             <time datetime="2020-05-25 12:00:00">
               <i class="fas fa-calendar-alt mr-2 mx-1"></i>{{subject.createdDate | date}}
             </time>
           </div>
           <div class="postcard__bar"></div>
-          <div class="postcard__preview-txt">{{subject.summary}}</div> <!-- -->
+          <div class="postcard__preview-txt">{{subject.summary}}</div> 
           <ul class="postcard__tagbox">
-            <li class="tag__item play blue"><i class="fa-solid fa-tag margin"></i>{{ subject.categoryName }}</li> <!--  -->
+            <li class="tag__item play blue"><i class="fa-solid fa-tag margin"></i>{{ subject.categoryName }}</li> 
             <li class="tag__item play blue" ><i class="fas fa-clock margin "></i>{{subject.createdDate | date}}</li>
             <li class="tag__item play blue">
               <a [routerLink]="['/subjects', subject.id]"><i class="fa-solid fa-book-open margin"></i>Devamını Oku</a>
@@ -35,6 +35,8 @@
           </ul>
         </div>
       </article>
+
+      
 
 
       <!-- <article class="postcard light red">
@@ -108,9 +110,15 @@
         </div>
       </article> -->
 
-
+ <!-- !Paginator -->
+ <div class="mt-8 py-5 text-center">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+  <!-- !Paginator -->
     </div>
   </section>
+
+ 
 
   <ng-template #noSubjects>
     <div class="alert alert-warning text-center my-5">

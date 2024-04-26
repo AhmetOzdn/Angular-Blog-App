@@ -18,7 +18,7 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
       return next(req).pipe(
         catchError(error => {
           if (error.status === 401) {   
-            debugger
+           
             return handleUnauthorizedError(req, next, authService, refreshTokenSubject, isRefreshing);
           } else {
             return throwError(error);

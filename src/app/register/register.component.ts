@@ -36,7 +36,7 @@ export class RegisterComponent {
 
           error: (err) => {
             this.error = err;
-            console.log(err);
+            console.log('Register Hata Mesajı',err);
           },
         });
     }

@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
   error: string = '';
+  isLoggedIn:boolean = false;
   http = inject(HttpClient);
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -26,7 +27,9 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: () => {
           this.router.navigate(['/']);
+          this.isLoggedIn= true;
           this.error = '';
+          this.reloadPage()
         },
         error: (err) => {
           this.error = err;
@@ -34,5 +37,12 @@ export class LoginComponent {
         },
       });
     }
+  }
+
+
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 100); 
   }
 }

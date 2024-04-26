@@ -47,7 +47,7 @@ export class AuthorEditPageComponent implements OnInit {
   loadDatas() {
     //Ana Componentten aldığımız bilgiler burada bu componet'e aktarılıyor
     this.inputData = this.data;
-    console.log(this.inputData); // Ana Componentten aldığımız bilgiler burada bu componet'e aktarılıyormu diye kontrol etim
+    // console.log(this.inputData); // Ana Componentten aldığımız bilgiler burada bu componet'e aktarılıyormu diye kontrol etim
 
     this.adminService.getAuthory().subscribe((authority) => {
       this.authorities = authority;
@@ -75,14 +75,14 @@ export class AuthorEditPageComponent implements OnInit {
       next: (res) => {
         alert('Yetki ekleme işlemi başarıyla tamamlandı!');
         this.closePopUp();
-        console.log(res);
+        // console.log(res);
   
         // Sayfanın yenilenmesi
         this.reloadPage(); // Örnek bir fonksiyon adı
       },
       error: (err) => {
         alert('Yetki ekleme işlemi başarısız oldu!');
-        console.log('Yetki ekleme hatası', err);
+        // console.log('Yetki ekleme hatası', err);
       },
     });
   }
@@ -105,11 +105,11 @@ export class AuthorEditPageComponent implements OnInit {
       next:(res) => {
         alert('Yetki silme işlemi başarılyla tamamlandı!');
         this.reloadPage();
-        console.log('Yetki silme işlemi başarılı :' , res);
+        // console.log('Yetki silme işlemi başarılı :' , res);
       },
       error:(err) => {
         alert('Yetki silme işlemi başarısız oldu!');
-        console.log('Yetki ekleme hatası', err);
+        // console.log('Yetki ekleme hatası', err);
       }
     })
   }

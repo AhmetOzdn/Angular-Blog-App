@@ -9,8 +9,8 @@
               </div>
               <div class="col-sm-6 p-4">
                 <div class="text-center">
-                  <div class="fw-light pastel-dark-low2"><h2>Bize Ulaşın</h2></div>
-                  <p class="mb-4  pastel-dark-low2 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate, tempora?</p>
+                  <div class="fw-light pastel-dark-low2" style="font-family: Fredoka, sans-serif !important;"><h2>Bizimle İletişime Geçin</h2></div>
+                  <p class="mb-4  pastel-dark-low2 ">Herhangi bir sorunuz, öneriniz veya geri bildiriminiz mi var? Bizimle iletişime geçmekten çekinmeyin! Size yardımcı olmaktan memnuniyet duyarız.</p>
                 </div>
   
                
@@ -19,21 +19,21 @@
   
                   <!-- Name Input -->
                   <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
+                    <label for="name" class="form-label">İsim</label>
                     <input required minlength="3" type="text" name="name" #name="ngModel" [(ngModel)]="model.name" id="name" class="form-control"/>
                      <!-- hata mesajı -->
                      <div class="text-danger mt-1" *ngIf="name.invalid && name.touched">
-                        Marka İsmi en az 3 karakter olmalıdır.
+                        İsim en az 3 karakter olmalıdır.
                     </div>
                 </div>
   
                   <!-- Email Input -->
                   <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input required minlength="3" type="text" name="email" #email="ngModel" [(ngModel)]="model.email" id="email" class="form-control"/>
+                    <input required  minlength="3" type="text" name="email" #email="ngModel" [(ngModel)]="model.email" id="email" class="form-control"/>
                      <!-- hata mesajı -->
                      <div class="text-danger mt-1" *ngIf="email.invalid && email.touched">
-                        Marka İsmi en az 3 karakter olmalıdır.
+                        Email giriniz.
                     </div>
                 </div>
   
@@ -70,7 +70,7 @@
   
                   <!-- Submit button -->
                   <div class="d-grid">
-                    <button class="btn btn-success btn-lg" id="submitButton" type="submit" (click)="postContactUs(name.value,email.value,message.value)" [disabled]="contactForm.invalid">Submit</button>
+                    <button class="btn btn-success btn-lg" id="submitButton" type="submit" (click)="postContactUs(name.value,email.value,message.value)" [disabled]="contactForm.invalid">Kaydet</button>
                   </div>
                 </form>
                 <!-- End of contact form -->

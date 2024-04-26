@@ -1,9 +1,8 @@
-<section class="bg-light font-fredoka">
+<section class=" font-fredoka firstDiv">
   <div class="container py-5" style="height: 110vh">
-    <!--  *ngFor="let item of getFromAuth"-->
     <div class="row">
       <div class="col-lg-4">
-        <div class="card mb-4">
+        <div class="card mb-4 py-5">
           <div class="card-body text-center">
             <div *ngIf="getImage && getImage.url != null else defaultPhoto">
               <app-image></app-image>
@@ -14,15 +13,17 @@
               <img src="https://flepix-blog-files.s3.amazonaws.com/7494587.jpg" alt="" class="rounded-circle img-fluid" style="width: 200px" />
           </ng-template>
 
-            <h5 class="my-3">
+            <h5 class="my-3 importantFont" *ngIf="getFromAuth">
               {{ getFromAuth.firstName }} {{ getFromAuth.lastName }}
             </h5>
             <p class="text-muted mb-1">Full Stack Developer</p>
             <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
           </div>
         </div>
-        <div class="card mb-4 mb-lg-0">
-          <div class="card-body p-0">
+        <!-- !Kişisel Web Sitesi Bilgileri -->
+       <!-- <div class="card mb-4 mb-lg-0">
+          
+           <div class="card-body p-0">
             <ul class="list-group list-group-flush rounded-3">
               <li
                 class="list-group-item d-flex justify-content-between align-items-center p-3"
@@ -55,8 +56,10 @@
                 <p class="mb-0">Facebook</p>
               </li>
             </ul>
-          </div>
-        </div>
+          </div> 
+           
+        </div>-->
+        <!-- !Kişisel Web Sitesi Bilgileri -->
       </div>
       <div class="col-lg-8">
         <div class="card mb-4">
@@ -65,7 +68,7 @@
               <div class="col-sm-3">
                 <p class="mb-0">Ad</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="getFromAuth">
                 <p class="text-muted mb-0">{{ getFromAuth.firstName }}</p>
               </div>
             </div>
@@ -74,7 +77,7 @@
               <div class="col-sm-3">
                 <p class="mb-0">Soyad</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="getFromAuth">
                 <p class="text-muted mb-0">{{ getFromAuth.lastName }}</p>
               </div>
             </div>
@@ -83,46 +86,143 @@
               <div class="col-sm-3">
                 <p class="mb-0">E-Mail</p>
               </div>
-              <div class="col-sm-9">
+              <div class="col-sm-9" *ngIf="getFromAuth">
                 <p class="text-muted mb-0">{{ getFromAuth.email }}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <h2>Yazara Ait Konular</h2>
-
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Konu</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Yapabilmek</p>
-              </div>
+        <!--? Author Sorgusu -->
+        <div *ngIf="isAuthor">
+          <section class="white font-fredoka" *ngIf="subjects.length>0 else noSubjects"> 
+            
+            <div class="container py-2">
+              <div class="h1 text-center pastel-dark-low" id="pageHeaderTitle">{{getFromAuth.firstName}} {{getFromAuth.lastName}} Ait Konular</div> 
+          
+              <article class="postcard dark blue" *ngFor="let subject of subjects | paginate: { itemsPerPage: itemsPerPage, currentPage: page }"> 
+                <a class="postcard__img_link" [routerLink]="['/subjects', subject.id]">
+                  <div *ngIf="subject.subjectImageFileId && subject.subjectImageFileId != null else defaultPhoto" class="standartHomePageSubjectPhotoContainer">
+                  <img  class="postcard__img standartHomePageSubjectPhoto" src="{{subject.subjectImageFileUrl}}"  alt="Image Title" /> <!--buraya img gelicek-->
+                  </div>
+                  <ng-template #defaultPhoto>
+                    <img src="https://flepix-blog-subjectfiles.s3.amazonaws.com/flepix.png" alt="" class="postcard__img" style="width: 200px" />
+                </ng-template>
+                </a>
+                <div class="postcard__text t-light">
+                 <h1 class="postcard__title pastel-light-low blue"><a [routerLink]="['/subjects', subject.id]">{{subject.title}}</a></h1>  <!--  -->
+                  <div class="postcard__subtitle small">
+                    <time datetime="2020-05-25 12:00:00">
+                      <i class="fas fa-calendar-alt mr-2 mx-1"></i>{{subject.createdDate | date}}
+                    </time>
+                  </div>
+                  <div class="postcard__bar"></div>
+                  <div class="postcard__preview-txt">{{subject.summary}}</div> <!-- -->
+                  <ul class="postcard__tagbox">
+                    <li class="tag__item play blue"><i class="fa-solid fa-tag margin"></i>{{ subject.categoryName }}</li> <!--  -->
+                    <li class="tag__item play blue" ><i class="fas fa-clock margin "></i>{{subject.createdDate | date}}</li>
+                    <li class="tag__item play blue">
+                      <a [routerLink]="['/subjects', subject.id]"><i class="fa-solid fa-book-open margin"></i>Devamını Oku</a>
+                    </li>
+                    <li class="tag__item play blue">
+                      <a [routerLink]="['/subjects', subject.id]"><i class="fa-regular fa-newspaper"></i> Konuyu Düzenle</a>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+        
+        
+              <!-- <article class="postcard light red">
+                <a class="postcard__img_link" href="#">
+                  <img class="postcard__img" src="assets/images/2.jpg" alt="Image Title" />	
+                </a>
+                <div class="postcard__text t-dark">
+                  <h1 class="postcard__title pastel-dark-low red mx-1"><a href="#">Podcast Title</a></h1>
+                  <div class="postcard__subtitle small">
+                    <time datetime="2020-05-25 12:00:00">
+                      <i class="fas fa-calendar-alt mr-2 mx-1"></i>Mon, May 25th 2024
+                    </time>
+                  </div>
+                  <div class="postcard__bar"></div>
+                  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                  <ul class="postcard__tagbox">
+                    <li class="tag__item"><i class="fas fa-tag mr-2"></i> Podcast</li>
+                    <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+                    <li class="tag__item play red">
+                      <a href="#"><i class="fa-solid fa-book-open mr-2"></i>Devamını Oku</a>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+        
+        
+              <article class="postcard light green">
+                <a class="postcard__img_link" href="#">
+                  <img class="postcard__img" src="assets/images/3.jpg" alt="Image Title" />
+                </a>
+                <div class="postcard__text t-dark">
+                  <h1 class="postcard__title pastel-dark-low green"><a href="#">Podcast Title</a></h1>
+                  <div class="postcard__subtitle small">
+                    <time datetime="2020-05-25 12:00:00">
+                      <i class="fas fa-calendar-alt mr-2 mx-1"></i>Mon, May 25th 2024
+                    </time>
+                  </div>
+                  <div class="postcard__bar"></div>
+                  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                  <ul class="postcard__tagbox">
+                    <li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+                    <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+                    <li class="tag__item play green">
+                      <a href="#"><i class="fa-solid fa-book-open mr-2"></i>Devamını Oku</a>
+                    </li>
+                  </ul>
+                </div>
+              </article>
+        
+        
+              <article class="postcard light yellow">
+                <a class="postcard__img_link" href="#">
+                  <img class="postcard__img" src="assets/images/4.jpg" alt="Image Title" />
+                </a>
+                <div class="postcard__text t-dark">
+                  <h1 class="postcard__title pastel-dark-low yellow mx-1"><a href="#">Podcast Title</a></h1>
+                  <div class="postcard__subtitle small">
+                    <time datetime="2020-05-25 12:00:00">
+                      <i class="fas fa-calendar-alt mr-2 mx-1"></i>Mon, May 25th 2024
+                    </time>
+                  </div>
+                  <div class="postcard__bar"></div>
+                  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+                  <ul class="postcard__tagbox">
+                    <li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+                    <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+                    <li class="tag__item play yellow">
+                      <a href="#"><i class="fa-solid fa-book-open mr-2"></i>Devamını Oku</a>
+                    </li>
+                  </ul>
+                </div>
+              </article> -->
+        
+        
             </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Kategori</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">Hayata Dair</p>
-              </div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Okunma Süresi</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">30 dk</p>
-              </div>
-            </div>
-          </div>
+        
+              <!-- !Paginator -->
+              <div class="mt-8 py-5 text-center">
+                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+                </div>
+                <!-- !Paginator -->
+          </section>
+        
+         
+        
         </div>
+       
       </div>
     </div>
   </div>
 </section>
+<ng-template #noSubjects>
+  <div class="alert alert-warning text-center my-5">
+    herhangi bir konunuz bulunamadı!
+  </div>
+</ng-template>

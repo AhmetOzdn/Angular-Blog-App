@@ -37,7 +37,7 @@ export class AuthService {
         tap((response) => {
           this.handleJWTToken(response.token, response.expiration);
           alert('Kayıt İşlemi Başarılı ');
-          debugger;
+          
         }),
         catchError(this.handleError)
       );
@@ -49,14 +49,14 @@ export class AuthService {
       password: password,
     };
     // console.log(loginObject); // login işleminde giriş yapılan inputları konsola yazdırır
-    debugger;
+   
     return this.http
       .post<JwtTokenModel>(this.loginUrl, loginObject, this.credentials)
       .pipe(
         tap((response) => {
           this.handleJWTToken(response.token, response.expiration);
           alert('Giriş İşlemi Başarılı');
-          debugger;
+          
         }),
         catchError(this.handleError)
       );
@@ -72,7 +72,7 @@ export class AuthService {
     let message = err.error.detail; // burada sadece error içindeki hata yazısını message içerisine atıyoruz "detail"
     // console.log(err);  tür error hatasını gösterir
     //console.log(err.error.detai);  sadece error içindeki hata yazısını gösterir
-    debugger;
+    
     return throwError(() => message);
   }
 
@@ -96,7 +96,7 @@ export class AuthService {
   logOut() {
     this.tokenModel.next(null);
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   setToken(setToken: string) {
@@ -113,7 +113,7 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.handleJWTToken(response.token, response.expiration);
-          console.log(response);
+          // console.log(response);
         }),
         catchError(this.handleError)
       );

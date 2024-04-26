@@ -21,12 +21,19 @@ export class ContactusComponent {
     this.contactUsService.postContactUs(contactus).subscribe(
       () => {
         alert('Talebinizi aldık en kısa sürede size geri dönüş yapacağız.');
-        console.log('Talebiniz başarıyla gönderildi.');
+        // console.log('Talebiniz başarıyla gönderildi.');
+        this.reloadPage();
       },
       (error) => {
-        console.error('post  hatası:', error);
+        // console.error('post  hatası:', error);
       }
     );
-    debugger;
+  }
+
+   // Sayfanın yenilenmesi için örnek bir fonksiyon
+   reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 200); 
   }
 }

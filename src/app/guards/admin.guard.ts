@@ -1,39 +1,29 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '../services/auth-.service';
-import { map, tap } from 'rxjs';
-import { AdminService } from '../services/admin.service';
+import { AccountService } from '../services/account.service';
+import { map, pipe, tap } from 'rxjs';
+
 
 export const adminGuard: CanActivateFn = (route, state) => {
-  // const adminService = inject(AdminService);
-  // const authService = inject(AuthService);
-  // const router = inject(Router);
+ const accountService = inject(AccountService);
+ const router = inject(Router);
 
-  // return authService.tokenModel.pipe(
-  //   map((tokenModel) => {
-  //     return (
-  //       /!!tokenModel &&
-  //       !!Admin Sorgusu Burada Yapılacak
-  //       // adminService.isAdmin().pipe(
-  //       //   map((isAdmin) => {
-  //       //     if (!isAdmin) {
-  //       //       router.navigate(['/register']);
-  //       //       localStorage.removeItem('token');
-  //       //       return false
-  //       //     }
-  //       //     return true;
-  //       //   })
-  //       // )
-  //     );
-  //   }),
-  //   tap((isAdmin) => {
-  //     if (!isAdmin) {
-  //       router.navigate(['/register']);
-  //       localStorage.removeItem('token');
-  //       return false
-  //     }
-  //     return true;
-  //   })
-  // );
-  return true;
-};
+ return accountService.getAuthWithClaim().pipe(
+  map(isAdmin => {
+    const isAdminUser = isAdmin.rolesAndClaims.some(item => item.name === 'Admin');
+    if (!isAdminUser) {
+      localStorage.removeItem("token");
+      window.location.reload();
+      return router.parseUrl('/login'); 
+    }
+    return true;
+  }),
+  tap(isAdmin => {
+    if (isAdmin == null) {
+      localStorage.removeItem("token");
+      window.location.reload();
+      router.navigate(['/login']);
+    }
+  })
+);
+}

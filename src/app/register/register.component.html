@@ -1,31 +1,29 @@
-<!-- Navbar-->
-<header class="header font-fredoka my-5">
-    <nav class="navbar navbar-expand-lg navbar-light py-3">
-        <div class="container">
-            <!-- Navbar Brand -->
-            <a href="#" class="navbar-brand">
-                <span class="h3">LEAR</span>
-                
-            </a>
-        </div>
-    </nav>
-</header>
 
 
-<div class="container font-fredoka">
+
+<div class="container font-fredoka my-3">
     <div class="row mb-5 align-items-center">
         <!-- For Demo Purpose -->
+        
         <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
             <img src="assets/images/design-and-development-process.png" alt="" class="img-fluid ">
-            <h1>Create an Account</h1>
-            <p class="font-italic text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore laborum voluptates minus totam maiores quas voluptatibus reprehenderit alias deserunt, odit odio possimus ipsam, reiciendis recusandae unde perferendis. Labore quo, recusandae debitis unde eaque commodi asperiores consectetur voluptas officiis? Voluptas tempora fugit ipsum. Animi illo asperiores hic repellendus et explicabo, fugit cum distinctio alias. Harum laborum et tempore adipisci, nisi minus sunt. Iste harum illum, neque voluptates omnis animi sunt deleniti id dicta cumque incidunt ullam placeat ex odit commodi eos et dignissimos beatae cum! Quos totam a enim voluptate in, ipsum, ducimus autem iste maiores eveniet temporibus suscipit necessitatibus sit!</p>
             
+            <p class="font-italic text-muted mb-0">
+                <h3 style="font-weight: 500;" class="pastel-dark-low2">Hoş Geldiniz!</h3> 
+                <hr>
+                Lear, çeşitli konularda yazılmış zengin içeriklere ev sahipliği yapan bir blog platformudur. Burada, tutkulu yazarlar tarafından kaleme alınmış çeşitli konuları keşfedebilir, ilgi çekici makaleler okuyabilir ve düşüncelerinizi paylaşabilirsiniz.
+                <hr>
+                 <h3 style="font-weight: 500;" class="my-2 pastel-dark-low2">Keşfedin ve Paylaşın</h3>
+                 
+                Lear'de herkesin ilgisini çekecek bir şeyler bulabileceğini umuyoruz. Deneyimlerinizi, düşüncelerinizi ve hikayelerinizi paylaşmak için ideal bir ortam sunuyoruz. Siz de kendi yazılarınızı paylaşarak bu topluluğa katkıda bulunabilirsiniz.
+                <hr>
+              
         </div>
         <div class="col-md-5" style="margin-left: 200px;">
                <!-- Registeration Form -->
             <form #registerForm="ngForm" (ngSubmit)="registerFormControl(registerForm)">
                
-           
+                <h1 style="font-weight: 500;" class="font-fredoka-important text-center pastel-dark-low2">Bir Hesap Oluşturun</h1>
                     <div class="row">
                         <div class="alert alert-danger text-center my-3 input-group col-lg-6 mb-4" *ngIf="error">
                             {{error}}
@@ -37,7 +35,7 @@
                                     <i class="fa-solid fa-circle-user icon"></i>
                                 </span>
                             </div>
-                            <input id="firstName" type="text" required  ngModel name="firstName" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="firstName" type="text" required  ngModel name="firstName" placeholder="Ad" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Last Name -->
@@ -47,7 +45,7 @@
                                     <i class="fa-solid fa-circle-user icon"></i>
                                 </span>
                             </div>
-                            <input id="lastName" type="text" required  ngModel name="lastName" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                            <input id="lastName" type="text" required  ngModel name="lastName" placeholder="Soyad" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Email Address -->
@@ -57,7 +55,7 @@
                                     <i class="fa-solid fa-envelope icon"></i>
                                 </span>
                             </div>
-                            <input id="email" type="email" email="email" required ngModel name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                            <input id="email" type="email" email="email" required ngModel name="email" placeholder="Email Adresi" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Password -->
@@ -67,7 +65,7 @@
                                     <i class="fa-solid fa-lock icon"></i>
                                 </span>
                             </div>
-                            <input id="password" type="password" password="password" required minlength="8"  ngModel  name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                            <input id="password" type="password" password="password" required minlength="8"  ngModel  name="password" placeholder="Parola" class="form-control bg-white border-left-0 border-md">
                         </div>
     
                         <!-- Password Confirmation -->
@@ -83,20 +81,20 @@
                         <!-- Submit Button -->
                         <div class="form-group submit-button col-lg-12 mb-0">
                             <button type="submit" class="btn btn-success btn-block py-2" [disabled]="registerForm.invalid">
-                               Create your account
+                                Hesabınızı oluşturun
                             </button>
                         </div>
     
                         <!-- Divider Text -->
                         <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
                             <div class="border-bottom w-100 ml-5"></div>
-                            <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+                            <span class="px-2 small text-muted font-weight-bold text-muted">VEYA</span>
                             <div class="border-bottom w-100 mr-5"></div>
                         </div>
     
                         <!-- Already Registered -->
                         <div class="text-center w-100">
-                            <p class="text-muted font-weight-bold">Already Registered? <a routerLink="/login" class="text-success ml-2">Login</a></p>
+                            <p class="text-muted font-weight-bold">Zaten Kayıtlı mısınız? <a routerLink="/login" class="text-success ml-2">Giriş Yap</a></p>
                         </div>
     
                     </div>

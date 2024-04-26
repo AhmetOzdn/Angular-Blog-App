@@ -35,3 +35,18 @@
   display: block;
   margin: auto; /* Resmi ortalamak için */
 }
+
+
+
+.headerStyle{
+  font-size: 40px;
+  font-weight: 500;
+
+  font-family: "Fredoka", sans-serif !important;
+}
+
+.upperheaderStyle{
+  font-size: 30px;
+  font-weight: 400;
+  font-family: "Fredoka", sans-serif !important;
+}

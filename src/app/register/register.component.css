@@ -22,7 +22,9 @@
     background: #1799e4;
 }
 
-
+.font-fredoka-important{
+    font-family: Fredoka, sans-serif !important;
+}
 
 body {
     min-height: 100vh;

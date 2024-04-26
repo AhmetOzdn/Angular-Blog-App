@@ -18,6 +18,12 @@
     color: #9EC8B9;
 }
 
+/*homePageImageStyle*/
+
+.homePageImageStyle{
+  width: 100%;
+}
+
 /*Carousel*/
 
 .carousel-edit{

@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-palet font-fredoka">
     <div class="container">
-      <a class="navbar-brand" href="#">LEAR</a>
+      <a class="navbar-brand" href="#"><img class="mx-2" style="width: 50px; height: 50px; border-radius: 50%;" src="assets/images/logo.jpg" alt="">LEAR BLOG</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse navbar-tool"  id="navbarNav">
         <ul class="navbar-nav  mx-auto">
           <li class="nav-item active">
-            <a routerLink="/" class="nav-link" href="#">Ana Sayfa </a>
+            <a routerLink="/" class="nav-link" >Ana Sayfa </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="isAuthenticated" routerLink="/admin">AdminGiriş</a>
+            <a class="nav-link" *ngIf="isAdmin && isAuthenticated" routerLink="/admin">AdminGiriş</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"  routerLink="/aboutus">Hakkımızda</a>

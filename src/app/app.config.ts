@@ -1,6 +1,5 @@
 import {
   ApplicationConfig,
-  NgModule,
   importProvidersFrom,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
@@ -15,6 +14,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -23,6 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     importProvidersFrom(HttpClientModule),
     provideHttpClient(withFetch(), withInterceptors([AuthInterceptor])),
+    [provideRouter(routes), provideAnimations(), provideHttpClient()], // Bu adımda, ProvidHttpClient() metodunu app.config.ts dosyasına aktarmamız gerekiyor burada onu yaptık bu bizim paginator yapısını kullanmamız için önemli
 
     {
       // bu kullanım bize gelen time değerini manipülasyon etmemizi sağladı medium değerini istersek değiştirebiliriz

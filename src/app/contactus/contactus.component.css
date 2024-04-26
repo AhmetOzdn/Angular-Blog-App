@@ -30,3 +30,7 @@ color: #9EC8B9;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.font-fredoka-important{
+  font-family: Fredoka, sans-serif !important;
+}

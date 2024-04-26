@@ -32,10 +32,7 @@ export class AdminService {
       .get<any>(this.getOperationClaims)
       .pipe(map((data) => data.items as UserDetailModel[]));
   }
-
-  getAuthoryFromPagination(page:number,limit:number):Observable<any>{
-    return this.http.get<any>(`https://localhost:7068/api/Users/GetListDetail?PageIndex=${page.toString()}&PageSize=${limit.toString()}`)
-  }
+  
   
   //PopUp Get
   getPopUpClaim():Observable<popUpClaimModel[]>{

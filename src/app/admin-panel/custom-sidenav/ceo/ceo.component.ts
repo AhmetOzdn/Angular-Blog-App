@@ -2,12 +2,10 @@ import { CommonModule } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
-  NO_ERRORS_SCHEMA,
   OnInit,
   ViewChild,
 } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { AuthorCreatePageComponent } from './author-create-page/author-create-page.component';
 import { AuthorEditPageComponent } from './author-edit-page/author-edit-page.component';
 import { AdminService } from '../../../services/admin.service';
 import { UserDetailModel } from '../../../models/User.Detail.Model';
@@ -18,6 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatSort, MatSortModule} from '@angular/material/sort';
+import { AuthService } from '../../../services/auth-.service';
 
 
 
@@ -39,25 +38,24 @@ export class CeoComponent implements OnInit {
 
   constructor(
     private matDialog: MatDialog,
-    private adminService: AdminService
+    private adminService: AdminService,
   ) {}
 
   //Get Operation Claims
   ngOnInit(): void {
-    this.getAuthory();
+    this.loadAuthory();
   }
 
- 
-
-  getAuthory(): void {
+  loadAuthory(){
     this.adminService.getAuthory().subscribe((claims) => {
       this.authorities = claims;
-      this.dataSource.data = this.authorities;
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      console.log(this.authorities);
+      this.dataSource.data = this.authorities; // sayfalama yapısı için
+      this.dataSource.paginator = this.paginator; // sayfalama yapısı için
+      this.dataSource.sort = this.sort; // arama yapmak için 
+      // console.log(this.authorities);
     });
   }
+
 
   //? Filtreleme İşlemi
   filterChange(data:Event){
@@ -71,8 +69,8 @@ export class CeoComponent implements OnInit {
       () => {
         // Başarıyla silindiyse yapılacak işlemler
         console.log('Yetkili başarıyla silindi.');
-        // Ürünleri tekrar yükle
-        this.getAuthory();
+        this.loadAuthory();  
+      
       },
       (error) => {
         // Hata durumunda yapılacak işlemler
@@ -81,10 +79,7 @@ export class CeoComponent implements OnInit {
     );
   }
 
-  //!author pop-up'ını açmak için kullandık
-  openAuthorCreatePage() {
-    this.matDialog.open(AuthorCreatePageComponent);
-  }
+ 
 
   //!Customer-Edit Pop-up
   openAuthorEditPage(author: UserDetailModel): void {

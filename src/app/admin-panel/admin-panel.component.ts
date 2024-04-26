@@ -19,7 +19,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthorEditPageComponent } from './custom-sidenav/ceo/author-edit-page/author-edit-page.component';
 import { CategoryEditPageComponent } from './custom-sidenav/content-editing/category-edit-page/category-edit-page.component';
 import { CategoryService } from '../services/category.service';
-import { AuthorCreatePageComponent } from './custom-sidenav/ceo/author-create-page/author-create-page.component';
 
 @Component({
   selector: 'app-admin-panel',
@@ -56,7 +55,6 @@ export class AdminPanelComponent {
     this.selected = event;
 
   }
-  //Calender
   //admin paneldeki açılır menüyü açıp kapatmak için yazıldı
   collapsed = signal(false);
   sidenavWitdh = computed(() => (this.collapsed() ? '65px' : '300px'));

@@ -359,9 +359,7 @@ a:hover {
   height: 300px; /* veya istediğiniz yükseklik */
   margin: 0 auto; /* Sayfa genişliğinde ortalama yapmak için */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Resmi sığdırmak için taşan kısımları gizler */
+
 } 
 
 
@@ -370,5 +368,33 @@ a:hover {
   max-width: 100%;
   max-height: 100%;
   display: block;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Resmi sığdırmak için taşan kısımları gizler */
   margin: auto; /* Resmi ortalamak için */
 }
+
+/*? Paginator için CSS */
+
+
+
+  .ngx-pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+
+ .ngx-pagination li {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  background: #f8f8f8 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+ }
+
+
+
+
+/*? Paginator için CSS */

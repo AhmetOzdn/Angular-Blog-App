@@ -5,10 +5,10 @@
 </ng-template>
 
 
-<div *ngIf="subject; else noSubjects">
+<div *ngIf="subject; else noSubjects" class="my-5">
   <div class="container font-fredoka">
     <div class="header text-center">
-      <h1>{{ subject.title }}</h1>
+      <h1 class="text-center headerStyle">{{ subject.title }}</h1>
     </div>
 
     <div class="article">
@@ -18,7 +18,7 @@
             <img src="{{subject.subjectImageFileUrl}}" class="image standartSubjectDetailPhoto" alt="" />
           </div>
         
-          <h2>{{ subject.title }}</h2>
+          <h2 class="upperheaderStyle">{{ subject.title }}</h2>
           <p class="text-muted">
             Yazar: {{subject.firstName}} {{subject.lastName}} | {{ subject.createdDate | date }} | Kategori:
             {{ subject.categoryName }}
