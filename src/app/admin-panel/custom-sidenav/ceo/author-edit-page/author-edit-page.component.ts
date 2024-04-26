@@ -33,7 +33,6 @@ export class AuthorEditPageComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private matDialogRef: MatDialogRef<AuthorEditPageComponent>,
     private buildr: FormBuilder,
-    private router: Router
   ) {}
   claims: popUpClaimModel[] = [];
   authorities: UserDetailModel[] = [];

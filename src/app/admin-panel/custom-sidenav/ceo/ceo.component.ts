@@ -45,7 +45,8 @@ export class CeoComponent implements OnInit {
   ngOnInit(): void {
     this.loadAuthory();
   }
-
+  
+  //?Tablo Bilgileri
   loadAuthory(){
     this.adminService.getAuthory().subscribe((claims) => {
       this.authorities = claims;
