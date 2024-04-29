@@ -30,13 +30,13 @@ export class RegisterComponent {
         .register(email, password, firstName, lastName)
         .subscribe({
           next: (result) => {
-            console.log(result);
+            // console.log(result);
             this.router.navigate(['/']);
           },
 
           error: (err) => {
             this.error = err;
-            console.log('Register Hata Mesajı',err);
+            // console.log('Register Hata Mesajı',err);
           },
         });
     }

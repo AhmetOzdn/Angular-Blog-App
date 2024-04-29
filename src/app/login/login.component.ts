@@ -29,11 +29,11 @@ export class LoginComponent {
           this.router.navigate(['/']);
           this.isLoggedIn= true;
           this.error = '';
-          this.reloadPage()
+           this.reloadPage()
         },
         error: (err) => {
           this.error = err;
-          console.log(err);
+          // console.log(err);
         },
       });
     }

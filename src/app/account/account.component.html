@@ -98,7 +98,7 @@
           <section class="white font-fredoka" *ngIf="subjects.length>0 else noSubjects"> 
             
             <div class="container py-2">
-              <div class="h1 text-center pastel-dark-low" id="pageHeaderTitle">{{getFromAuth.firstName}} {{getFromAuth.lastName}} Ait Konular</div> 
+              <div class="h1 text-center pastel-dark-low" id="pageHeaderTitle" *ngIf="getFromAuth">{{getFromAuth.firstName}} {{getFromAuth.lastName}} Ait Konular</div> 
           
               <article class="postcard dark blue" *ngFor="let subject of subjects | paginate: { itemsPerPage: itemsPerPage, currentPage: page }"> 
                 <a class="postcard__img_link" [routerLink]="['/subjects', subject.id]">

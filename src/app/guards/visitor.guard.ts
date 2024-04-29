@@ -12,8 +12,8 @@ export const visitorGuard: CanActivateFn = (route, state) => {
     map(tokenModel =>{
          return !!tokenModel 
     }),
-    tap(isAdmin =>{
-        if(!isAdmin){
+    tap(isVisitor =>{
+        if(!isVisitor){
             router.navigate(["/register"]);
             localStorage.removeItem("token");
         }

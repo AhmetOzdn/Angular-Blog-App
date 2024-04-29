@@ -42,7 +42,7 @@ export class ContentEditingComponent implements OnInit {
         this.dataSource.sort = this.sort;
       },
       (error) => {
-        console.error('Kategori alma hatası:', error);
+        // console.error('Kategori alma hatası:', error);
       }
     );
   }
@@ -71,15 +71,22 @@ export class ContentEditingComponent implements OnInit {
         // Başarıyla silindiyse yapılacak işlemler
         alert('Kategori başarıyla silindi.');
         // Ürünleri tekrar yükle
+        this.reloadPage() ;
         this.loadCategories();
       },
       (error) => {
         // Hata durumunda yapılacak işlemler
-        console.error('Kategori silme hatası:', error);
+        // console.error('Kategori silme hatası:', error);
       }
     );
   }
 
+
+reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); 
+  }
   
 
   

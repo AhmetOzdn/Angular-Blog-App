@@ -13,30 +13,46 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, NavbarComponent,RouterModule,RouterLink,HttpClientModule,MatDialogModule,CommonModule],
+  imports: [
+    RouterOutlet,
+    NavbarComponent,
+    RouterModule,
+    RouterLink,
+    HttpClientModule,
+    MatDialogModule,
+    CommonModule,
+  ],
 })
 export class AppComponent implements OnInit {
-  isAuthor:boolean = false;
+  isAuthor: boolean = false;
   isAuthenticated: boolean = false;
   title = 'blogws';
-  constructor(private authService: AuthService,private accountService: AccountService) {}
+  constructor(
+    private authService: AuthService,
+    private accountService: AccountService
+  ) {}
   ngOnInit(): void {
-    this.authService.autoLogin(); //auto login'i sayfa yüklenince çağırır
-    
+    //?Auto login'i sayfa yüklenince çağırır
+    this.authService.autoLogin(); 
+
+    //?Login Sorgusu
     this.authService.tokenModel.subscribe((response) => {
       this.isAuthenticated = !!response;
     });
-    // Author sorgusu
-    this.accountService.getAuthWithClaim().subscribe(data =>{
-      data.rolesAndClaims.forEach((item) => {
-        if(item.name === "Author"){
-          this.isAuthor = !!item;
-          
-         }else{
-          this.isAuthor = false;
-         
-         }
-      })
-    });
+
+    //?Author sorgusu
+    if (this.isAuthenticated === true) {
+      this.accountService.getAuthWithClaim().subscribe((data) => {
+        data.rolesAndClaims.forEach((item) => {
+          if (item.name === 'Author') {
+            this.isAuthor = !!item;
+          } else {
+            this.isAuthor = false;
+          }
+        });
+      });
+    } else {
+      this.isAuthenticated = false;
+    }
   }
 }

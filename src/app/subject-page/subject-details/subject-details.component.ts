@@ -21,7 +21,6 @@ export class SubjectDetailsComponent implements OnInit{
       const id = params['subjectid'];
       this.subjectService.getSubjectById(id).subscribe(subject => {
         this.subject = subject;
-        // debugger
       });
     });
   }

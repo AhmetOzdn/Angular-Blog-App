@@ -40,7 +40,6 @@ export class AuthorComponent implements OnInit {
     text: string,
     summary: string,
   ) {
-    debugger;
     if (!this.selectedFile) {
       alert('Lütfen bir dosya seçin.');
       return;
@@ -56,9 +55,9 @@ export class AuthorComponent implements OnInit {
 
     this.subjectService.uploadSubject(postData).subscribe((subjectdata) => {
       this.router.navigate(['/']);
-      console.log(subjectdata);
+      // console.log(subjectdata);
     });
-    console.log(postData);
+    // console.log(postData);
   }
   
 }

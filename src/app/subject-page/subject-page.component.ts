@@ -21,7 +21,7 @@ export class SubjectPageComponent implements OnInit {
   totalSubject: any;
   constructor(
     private subjectService: SubjectService,
-    private activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
@@ -31,14 +31,13 @@ export class SubjectPageComponent implements OnInit {
         this.subjectService
           .getListFromSubjectWithCategoryId(params['categoryId'])
           .subscribe((subjects) => {
-              this.subjects = subjects.items;
+            this.subjects = subjects.items;
           });
       } else {
         this.loadSubjects();
       }
     });
   }
-
 
   loadSubjects(): any {
     this.subjectService.getSubjects().subscribe(
@@ -47,7 +46,7 @@ export class SubjectPageComponent implements OnInit {
         this.totalSubject = data.length;
       },
       (error) => {
-        console.error('Subjects get hatası :', error);
+        // console.error('Subjects get hatası :', error);
       }
     );
   }

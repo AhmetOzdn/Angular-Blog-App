@@ -26,11 +26,20 @@ export class ImageComponent {
 
     this.accountService.uploadImage(this.selectedFile).subscribe(
       (response) => {
-        console.log('Resim yüklendi:', response);
+        this.reloadPage();
+        // console.log('Resim yüklendi:', response);
       },
       (error) => {
-        console.error('Resim yüklenemedi:', error);
+        // console.error('Resim yüklenemedi:', error);
       }
     );
   }
+
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 500); 
+  }
+
+  
 }
