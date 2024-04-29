@@ -16,9 +16,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { NativeDateModule } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthorEditPageComponent } from './custom-sidenav/ceo/author-edit-page/author-edit-page.component';
-import { CategoryEditPageComponent } from './custom-sidenav/content-editing/category-edit-page/category-edit-page.component';
-import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-admin-panel',

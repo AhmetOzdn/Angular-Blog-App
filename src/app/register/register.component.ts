@@ -25,7 +25,6 @@ export class RegisterComponent {
       const password = registerForm.value.password;
       const firstName = registerForm.value.firstName;
       const lastName = registerForm.value.lastName;
-      debugger
       this.authService
         .register(email, password, firstName, lastName)
         .subscribe({

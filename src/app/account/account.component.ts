@@ -9,6 +9,8 @@ import { SubjectDetailsListModel } from '../models/subject-details-list-model';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { SubjectEditPageComponent } from './subject-edit-page/subject-edit-page.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-account',
@@ -20,7 +22,8 @@ import { BehaviorSubject } from 'rxjs';
 export class AccountComponent implements OnInit {
   constructor(
     private accountService: AccountService,
-    private subjectService: SubjectService
+    private subjectService: SubjectService,
+    private matDialog: MatDialog,
   ) {}
   subjects: SubjectDetailsListModel[] = [];
   getFromAuth!: getFromAuthModel;
@@ -89,6 +92,23 @@ export class AccountComponent implements OnInit {
       },
     });
   }
+
+    //!Customer-Edit Pop-up
+    openSubjectEditPage(subject: SubjectDetailsListModel): void {
+      this.matDialog.open(SubjectEditPageComponent, {
+        width: '60%',
+        height: 'auto',
+        enterAnimationDuration: '300ms',
+        exitAnimationDuration: '300ms',
+        data: {
+          id:subject.id,
+          title: subject.title,
+          summary: subject.summary,
+          text: subject.text,
+          subjectImageFileId: subject.subjectImageFileId,
+        },
+      });
+    }
 
   
 }

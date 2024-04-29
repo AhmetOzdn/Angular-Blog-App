@@ -125,7 +125,7 @@
                       <a [routerLink]="['/subjects', subject.id]"><i class="fa-solid fa-book-open margin"></i>Devamını Oku</a>
                     </li>
                     <li class="tag__item play blue">
-                      <a [routerLink]="['/subjects', subject.id]"><i class="fa-regular fa-newspaper"></i> Konuyu Düzenle</a>
+                      <a style="cursor: pointer;" (click)="openSubjectEditPage(subject)"><i class="fa-regular fa-newspaper"></i> Konuyu Düzenle</a>
                     </li>
                   </ul>
                 </div>

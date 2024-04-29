@@ -9,7 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-author-edit-page',
@@ -72,7 +71,7 @@ export class AuthorEditPageComponent implements OnInit {
   
     this.adminService.saveClaim(data).subscribe({
       next: (res) => {
-        alert('Yetki ekleme işlemi başarıyla tamamlandı!');
+        // alert('Yetki ekleme işlemi başarıyla tamamlandı!');
         this.closePopUp();
         // console.log(res);
   
@@ -80,7 +79,7 @@ export class AuthorEditPageComponent implements OnInit {
         this.reloadPage(); // Örnek bir fonksiyon adı
       },
       error: (err) => {
-        alert('Yetki ekleme işlemi başarısız oldu!');
+        // alert('Yetki ekleme işlemi başarısız oldu!');
         // console.log('Yetki ekleme hatası', err);
       },
     });
@@ -102,12 +101,12 @@ export class AuthorEditPageComponent implements OnInit {
   deleteClaim(userOperationClaimId:number){
     this.adminService.deleteClaim(userOperationClaimId).subscribe({
       next:(res) => {
-        alert('Yetki silme işlemi başarılyla tamamlandı!');
+        // alert('Yetki silme işlemi başarılyla tamamlandı!');
         this.reloadPage();
         // console.log('Yetki silme işlemi başarılı :' , res);
       },
       error:(err) => {
-        alert('Yetki silme işlemi başarısız oldu!');
+        // alert('Yetki silme işlemi başarısız oldu!');
         // console.log('Yetki ekleme hatası', err);
       }
     })

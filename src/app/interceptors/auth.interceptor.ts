@@ -8,7 +8,12 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
   const authService: AuthService = inject(AuthService);
   let isRefreshing = false;
   let refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
-  
+  let isAuthenticated:boolean = false;
+
+  authService.tokenModel.subscribe((response)=>{
+    isAuthenticated = !!response;
+  })
+
   return authService.tokenModel.pipe(
     take(1),
     switchMap(tokenModel => {
@@ -17,7 +22,8 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
       }
       return next(req).pipe(
         catchError(error => {
-          if (error.status === 401) {   
+         
+          if (error.status === 401 && isAuthenticated === true) {   
            
             return handleUnauthorizedError(req, next, authService, refreshTokenSubject, isRefreshing);
           } else {

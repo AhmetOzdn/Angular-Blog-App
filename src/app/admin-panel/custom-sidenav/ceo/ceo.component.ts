@@ -16,7 +16,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatSort, MatSortModule} from '@angular/material/sort';
-import { AuthService } from '../../../services/auth-.service';
 
 
 
@@ -69,13 +68,13 @@ export class CeoComponent implements OnInit {
     this.adminService.deleteAuthory(id).subscribe(
       () => {
         // Başarıyla silindiyse yapılacak işlemler
-        console.log('Yetkili başarıyla silindi.');
+        // console.log('Yetkili başarıyla silindi.');
         this.loadAuthory();  
       
       },
       (error) => {
         // Hata durumunda yapılacak işlemler
-        console.error('Yetkili silme hatası:', error);
+        // console.error('Yetkili silme hatası:', error);
       }
     );
   }

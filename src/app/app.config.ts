@@ -15,6 +15,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     provideHttpClient(withFetch(), withInterceptors([AuthInterceptor])),
     [provideRouter(routes), provideAnimations(), provideHttpClient()], // Bu adımda, ProvidHttpClient() metodunu app.config.ts dosyasına aktarmamız gerekiyor burada onu yaptık bu bizim paginator yapısını kullanmamız için önemli
-
+    [CookieService],
     {
       // bu kullanım bize gelen time değerini manipülasyon etmemizi sağladı medium değerini istersek değiştirebiliriz
       provide: DATE_PIPE_DEFAULT_OPTIONS,

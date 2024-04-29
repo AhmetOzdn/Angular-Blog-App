@@ -1,0 +1,33 @@
+<form [formGroup]="popUpForm" (ngSubmit)="savePopUpData(inputSubject.id)">
+    <h1 mat-dialog-title class="text-center my-2">Düzenle</h1>
+    <div mat-dialog-content>
+      <div class="p-5 editPage font-fredoka">
+        <div class="row">
+          <!-- Yetkiyi Düzenle Form -->
+  
+          <div class="col-6">
+            <h2 class="text-center my-3">Yetkiyi Düzenle</h2>
+  
+          </div>
+  
+          <!-- Kullananılabilir Yetkiler-->
+          <div class="col-6">
+            <div>
+              <h2 class="claimHeader">Kullananılabilir Yetkiler</h2>
+              <ul class="claimUl">
+                <li class="claimLi">
+                  <div>
+                
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div mat-dialog-actions class="buttons my-2">
+      <button type="submit" class="btn btn-success mx-1">Kaydet</button>
+      <i class="fa-solid fa-circle-xmark fa-2x icon" (click)="closePopUp()"></i>
+    </div>
+  </form>

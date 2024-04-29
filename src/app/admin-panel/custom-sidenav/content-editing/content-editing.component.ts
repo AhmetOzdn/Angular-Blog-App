@@ -69,7 +69,7 @@ export class ContentEditingComponent implements OnInit {
     this.categoryService.deleteCategory(id).subscribe(
       () => {
         // Başarıyla silindiyse yapılacak işlemler
-        alert('Kategori başarıyla silindi.');
+        // alert('Kategori başarıyla silindi.');
         // Ürünleri tekrar yükle
         this.reloadPage() ;
         this.loadCategories();

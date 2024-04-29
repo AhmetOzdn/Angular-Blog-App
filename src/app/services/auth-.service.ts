@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { JwtTokenModel } from '../models/jwtTokenModel';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common'; // platform-browser modülü ekledik
+import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,7 +12,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cookieService: CookieService,
   ) {}
   registerUrl = 'https://localhost:7068/api/Auth/Register';
   loginUrl = 'https://localhost:7068/api/Auth/Login';
@@ -65,7 +67,8 @@ export class AuthService {
   private handleJWTToken(token: string, expiration: Date) {
     const jwtToken = new JwtTokenModel(token, expiration);
     this.tokenModel.next(jwtToken); // burada jwtToken'ı behoviorSubject'e atıyoruz
-    localStorage.setItem('token', JSON.stringify(jwtToken)); // burada localStorage'ye token'ı atıyoruz
+    this.cookieService.set('Token',JSON.stringify(jwtToken));
+    // localStorage.setItem('token', JSON.stringify(jwtToken)); // burada localStorage'ye token'ı atıyoruz
   }
 
   private handleError(err: HttpErrorResponse) {
@@ -81,31 +84,38 @@ export class AuthService {
       // Tarayıcıda değilse, işlem yapma
       return;
     }
-    const token = localStorage.getItem('token');
-    if (token === null) {
-      return;
-    }
-    const jwtToken = JSON.parse(token);
-    const loadedJwtToken = new JwtTokenModel(
-      jwtToken.token,
-      new Date(jwtToken.expiration)
-    );
-    this.tokenModel.next(loadedJwtToken);
+    // burada kullanıcı girşi yapmamış ise  Token = "" oluyor ve parse hgatası veriyor buna bak 
+   
+    const cookieToken =  this.cookieService.get('Token');
+    if (cookieToken === null) {
+      return
+    }                           
+    if(cookieToken === ""){
+      return 
+    }else{                            
+      const jwtToken = JSON.parse(cookieToken);
+      const loadedJwtToken = new JwtTokenModel(
+        jwtToken.token,
+        new Date(jwtToken.expiration)
+      );
+      this.tokenModel.next(loadedJwtToken);
+    }                   
   }
 
   logOut() {
     this.tokenModel.next(null);
     localStorage.removeItem('token');
+    this.cookieService.delete("Token");
     this.router.navigate(['/']);
+    this.reloadPage()
   }
 
-  setToken(setToken: string) {
-    return localStorage.setItem('token', setToken);
-  }
-
-  removeToken() {
-    return localStorage.removeItem('token');
-  }
+    // Sayfanın yenilenmesi için örnek bir fonksiyon
+    reloadPage() {
+      setTimeout(() => {
+        window.location.reload();
+      }, 500); 
+    }
 
   refreshToken(): Observable<JwtTokenModel> {
     return this.http

@@ -21,7 +21,7 @@ export class CategoryEditPageComponent implements OnInit {
   //!Save Category
   saveCategory(name: any) {
     this.categoryService.createCategory({ id: 0, name: name.value }).subscribe(data => {
-      alert("Kategori başarıyla eklendi.");
+      // alert("Kategori başarıyla eklendi.");
       this.closePopUp();
       // Sayfayı yenile
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;

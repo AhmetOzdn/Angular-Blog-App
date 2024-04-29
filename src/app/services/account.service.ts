@@ -28,7 +28,6 @@ export class AccountService {
   uploadImage(selectedFile: File) {
     const formData = new FormData();
     formData.append('formFile', selectedFile, selectedFile.name);
-    debugger
     return this.http.post(this.imagePostUrl, formData);
   }
 
