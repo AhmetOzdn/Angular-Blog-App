@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     MatDialogModule,
     CommonModule,
+    
   ],
 })
 export class AppComponent implements OnInit {

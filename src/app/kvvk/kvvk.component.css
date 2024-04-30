@@ -1,0 +1,23 @@
+
+
+.kvkkdiv{
+    padding: 15px;
+    margin: 650px 30px 30px 30px;
+    border-radius: 15px;
+    background-color: #5C8374;
+    position: fixed;
+    color: white;
+    z-index: 4;
+}
+
+.closebutton{
+    position: relative;
+    left: 1700px;
+    color: rgb(133, 133, 133);
+    transition: .2s all;
+    font-size: 18px;
+}
+
+.closebutton:hover{
+    color: white;
+}
