@@ -1,7 +1,7 @@
-<app-kvvk></app-kvvk>
+<app-kvvk class="gy-3 gy-md-4 gy-lg-0 align-items-lg-center"></app-kvvk>
 
 <div>
-    <!-- <div id="carouselExampleCaptions" class=" carousel-size carousel slide ">
+  <!-- <div id="carouselExampleCaptions" class=" carousel-size carousel slide ">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -48,21 +48,23 @@
       <button class="btn btn-outline-light btn-lg mx-3 my-3">Get Started</button>
       <button class="btn btn-outline-light btn-lg mx-3">Learn More</button>
     </div> -->
-    <img class="homePageImageStyle" src="https://flepix-blog-subjectfiles.s3.amazonaws.com/bg.png" alt="">
-    </div>
-    
-   
+  <img
+    class="homePageImageStyle"
+    src="https://flepix-blog-subjectfiles.s3.amazonaws.com/bg.png"
+    alt=""
+  />
+</div>
+
 <!-- Sidebar -->
-<div class="container font-fredoka">
-    <div class="row ">
-        <div class="col-2 sidebar my-5">
-          <app-categories/>
-        </div>
-    
-        
-        <!-- Cards -->
-        <div class="col-9">
-          <router-outlet></router-outlet>
-                </div>
-        
-       
+<div class="container-fluid font-fredoka text-lg-start">
+  <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+    <div class="col-8 col-lg-4 col-xl-2 sidebar">
+      <app-categories class="col-12 col-lg-6 col-xl-7" />
+    </div>
+
+    <!-- Cards -->
+    <div class="col-12 col-lg-6 col-xl-8">
+      <router-outlet class=" col-lg-6 col-xl-9 col-12"></router-outlet>
+    </div>
+  </div>
+</div>

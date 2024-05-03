@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   isAuthenticated: boolean = false;
   getFromAuthWithClaim: getFromAuthWithClaimModel[] = [];
   isAdmin: boolean = true;
+  navbarOpen = false;
 
   constructor(
     private authService: AuthService,
@@ -45,5 +46,9 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     this.authService.logOut();
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 }
