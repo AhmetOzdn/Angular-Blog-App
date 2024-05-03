@@ -1,6 +1,6 @@
-# Yazar Blog Platformu
+# Yazar Blog Uygulaması
 
-Bu uygulama, yazarların ilgi alanlarına göre konu ekleyip bunları insanlarla paylaşabilecekleri bir platformu sağlar.
+Bu uygulama, yazarların ilgi alanlarına göre konu ekleyip bunları insanlarla paylaşabilecekleri bir platformu sağlamayı amaçlar.
 
 ## Özellikler
 
