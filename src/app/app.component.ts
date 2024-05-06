@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent implements OnInit {
   isAuthor: boolean = false;
   isAuthenticated: boolean = false;
-  title = 'blogws';
+  title = 'Lear Blog';
   constructor(
     private authService: AuthService,
     private accountService: AccountService
