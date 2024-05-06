@@ -1,28 +1,79 @@
-# Blogws
+# Yazar Blog Uygulaması
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+Bu uygulama, yazarların ilgi alanlarına göre konu ekleyip bunları insanlarla paylaşabilecekleri bir platformu sağlamayı amaçlar.
 
-## Development server
+## Özellikler
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Yazarlar, kendi ilgi alanlarına göre konular oluşturabilir.
+- Yazarlar, oluşturdukları konuları düzenleyebilir.
+- Arama özelliği sayesinde kullanıcılar istedikleri konuları kolayca bulabilir.
 
-## Code scaffolding
+## Kurulum
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Bu depoyu klonlayın: `git clone https://github.com/kullanici/uygulama.git`
+2. Uygulama dizinine gidin: `cd uygulama`
+3. Gerekli bağımlılıkları yükleyin: `npm install`
+4. Veritabanını oluşturun: `npm run migrate`
+5. Sunucuyu başlatın: `npm start`
 
-## Build
+## Kullanım
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Uygulamayı başlattıktan sonra, tarayıcınızda `http://localhost:4200` adresine gidin.
+2. Yeni bir hesap oluşturun veya varolan bir hesapla giriş yapın.
+3. Yazarlar, ilgi alanlarına göre konular oluşturabilir ve paylaşabilir.
 
-## Running unit tests
+## Katkıda Bulunma
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Katkıda bulunmak isterseniz, lütfen yeni özellikler veya hata düzeltmeleri için bir pull isteği açın. 
 
-## Running end-to-end tests
+1. Bu depoyu fork edin.
+2. Yeni bir branch oluşturun: `git checkout -b yeni-ozellik`
+3. Yaptığınız değişiklikleri commit edin: `git commit -am 'Yeni özellik: Açıklama'`
+4. Değişikliklerinizi fork ettiğiniz orijinal depoya push edin: `git push origin yeni-ozellik`
+5. Bir pull isteği açın.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Lisans
 
-## Further help
+Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasını inceleyin.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+------------------------------------------------------------------------------------------------------------------------
+
+# Author Blog App
+
+This app aims to provide a platform for writers to add topics based on their interests and share them with people.
+
+## Features
+
+- Authors can create topics according to their own interests.
+- Authors can edit the topics they create.
+- Thanks to the search feature, users can easily find the topics they want.
+
+## Installation
+
+1. Clone this repository: `git clone https://github.com/user/application.git`
+2. Go to the application directory: `cd application`
+3. Install the required dependencies: `npm install`
+4. Create the database: `npm run migrate`
+5. Start the server: `npm start`
+
+## Usage
+
+1. After launching the app, go to `http://localhost:4200` in your browser.
+2. Create a new account or log in with an existing account.
+3. Authors can create and share topics based on their interests.
+
+## How to Contribute
+
+If you would like to contribute, please open a pull request for new features or bug fixes.
+
+1. Fork this repository.
+2. Create a new branch: `git checkout -b new-feature`
+3. Commit your changes: `git commit -am 'New feature: Description'`
+4. Push your changes to the original repository you forked: `git push origin new-feature`
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
